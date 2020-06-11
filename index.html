@@ -18,12 +18,12 @@
       sapiente maiores adipisci molestias delectus? Officia repellat ducimus excepturi, reiciendis laudantium quaerat
       voluptatem delectus placeat.
     </p>
-    <a href="#bike-locations">Begin</a>
+    <a href="#bike-main">Begin</a>
   </header>
 
-  <main id="bike-locations">
+  <main id="bike-main">
     <h2>Choose your location</h2>
-    <form action="">
+    <form class="form-landmark">
       <label for="parks">Parks</label>
       <input type="radio" id="parks" class="parks-radio" name="landmark">
 
@@ -31,29 +31,29 @@
       <input type="radio" id="schools" class="schools-radio" name="landmark">
     </form>
 
-    <button type="submit">Submit</button>
+    <button class="button-landmark" type="submit">Submit</button>
 
-    <form action="">
+    <form class="form-location">
       <label for="location">Locations</label>
-      <select name="location" id="location">
+      <select name="location" id="location" class="select-location">
         <option value="">Select</option>
       </select>
     </form>
 
-    <section>
+    <section class="bike-info">
 
       <div>
-        <h2></h2>
+        <h2 class="info-location-name"></h2>
 
         <div>
-          <img src="" alt="">
+          <img class="info-location-image" src="" alt="">
         </div>
       </div>
 
       <div>
 
 
-        <ul>
+        <ul class="info-station-list">
 
         </ul>
 
@@ -67,7 +67,7 @@
 
 
   <footer>
-    <button>Reset</button>
+    <button class="button-reset">Reset</button>
     <p>API </p>
     <p>Lat/Long Function</p>
   </footer>

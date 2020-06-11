@@ -1,7 +1,7 @@
 // Create namespace object Y
 // Document Ready Y
 // Init Function Y
-// Create variable DOM selectors
+// Create variable DOM selectors Y
 // Begin button needs id to scroll to main section Y
 
 
@@ -23,6 +23,34 @@
 
 // NAMESPACE OBJECT
 const app = {};
+
+const schoolsArray = [
+  {
+    name: "Juno",
+    lat: "",
+    long: ""
+  },
+  {
+    name: "University of Toronto - St. George",
+    lat: "",
+    long: ""
+  }, 
+  {
+    name: "George Brown - St. James",
+    lat: "",
+    long: ""
+  }, 
+  {
+    name: "Ryerson",
+    lat: "",
+    long: ""
+  }, 
+  {
+    name: "OCAD",
+    lat: "",
+    long: ""
+  },  
+]
 
 
 
