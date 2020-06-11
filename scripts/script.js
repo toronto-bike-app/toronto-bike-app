@@ -1,8 +1,8 @@
-// Create namespace object
-// Document Ready
-// Init Function
+// Create namespace object Y
+// Document Ready Y
+// Init Function Y
 // Create variable DOM selectors
-// Begin button needs id to scroll to main section
+// Begin button needs id to scroll to main section Y
 
 
 // Landmark Submit button -> Create Event Listener
@@ -33,6 +33,21 @@ const app = {};
 
 // INIT FUNCTION
 app.init = function() {
+
+  const $formLandmark = $('.form-landmark');
+  const $parksRadio = $('.parks-radio');
+  const $schoolsRadio = $('.schools-radio');
+  const $buttonLandmark = $('.button-landmark');
+
+  const $formLocation = $('.form-location'); 
+  const $selectLocation = $('.select-location');
+
+  const $bikeInfo = $('.bike-info');
+  const $infoLocationName = $('.info-location-name');
+  const $infoLocationImage = $('.info-location-image');
+  const $infoStationList = $('.info-station-list');
+
+  const $buttonReset = $('.button-reset');
 
 }
 
