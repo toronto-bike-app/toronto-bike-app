@@ -6,7 +6,7 @@
 
 
 // Landmark Submit button -> Create Event Listener
-//  Create parks and schools arrays -> five different options
+//  Create parks and schools arrays -> five different options Y
 //  .each() through the array, and render to DOM
 
 // Dropdown Event Listener
@@ -24,7 +24,7 @@
 // NAMESPACE OBJECT
 const app = {};
 
-const schoolsArray = [
+app.schoolsArray = [
     {
         name: "Juno",
         lat: 43.6483,
@@ -52,7 +52,7 @@ const schoolsArray = [
     }
 ]
 
-const parksArray = [
+app.parksArray = [
     {
         name: "High Park",
         lat: 43.6465,
@@ -85,7 +85,10 @@ const parksArray = [
 ]
 
 
+app.handleLandMark = function () {
+    console.log(this);
 
+}
 
 
 
@@ -108,6 +111,7 @@ app.init = function () {
 
     const $buttonReset = $('.button-reset');
 
+    $formLandmark.on('click', 'input[type="radio"]', app.handleLandMark);
 }
 
 // DOCUMENT READY
