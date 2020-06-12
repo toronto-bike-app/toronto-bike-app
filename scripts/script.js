@@ -32,26 +32,31 @@ const app = {};
 app.schoolsArray = [
     {
         name: "Juno",
+        value: "juno",
         lat: 43.6483,
         long: 79.3979
     },
     {
         name: "University of Toronto - St. George",
+        value: "university-of-toronto-st-george",
         lat: 43.6629,
         long: 79.3957
     },
     {
         name: "George Brown - St. James",
+        value: "george-brown-st-james",
         lat: 43.6513,
         long: 79.3702
     },
     {
         name: "Ryerson",
+        value: "ryerson",
         lat: 43.6577,
         long: 79.3788
     },
     {
         name: "OCAD",
+        value: "ocad",
         lat: 43.6530,
         long: 79.3912
     }
@@ -110,7 +115,6 @@ app.chooseLocation = function () {
                 lat = park.lat;
                 long = park.long;
                 console.log(name);
-
             }
         })
     } else if (locationName === 'schools-location') {
