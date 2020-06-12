@@ -96,10 +96,34 @@ app.parksArray = [
     }
 ]
 
-app.chooseLocation = function() {
-    const locationValue = $(this).attr('class');
-    // $("option:contains('park')");
-    console.log(locationValue);
+app.chooseLocation = function () {
+    const locationName = $(this).attr('name');
+    const locationValue = $(this).val();
+    let name;
+    let lat;
+    let long;
+    let schoolName;
+    if (locationName === 'park-location') {
+        app.parksArray.forEach((park) => {
+            if (park.value === locationValue) {
+                name = park.name;
+                lat = park.lat;
+                long = park.long;
+                console.log(name);
+
+            }
+        })
+    } else if (locationName === 'schools-location') {
+        app.schoolsArray.forEach((school) => {
+            if (school.value === locationValue) {
+                schoolName = school.name;
+                lat = school.lat;
+                long = school.long;
+                console.log(schoolName);
+
+            }
+        })
+    }
 
     //Ajax call
     app.chooseLocation = function () {
@@ -121,7 +145,7 @@ app.chooseLandmark = function () {
     app.$selectLocation.html(`<option value=""> Select </option>`);
 
     if (landmarkValue === 'parks-radio') {
-
+        app.$selectLocation.attr('name', 'park-location')
         app.parksArray.forEach((park) => {
             const parkName = park.name;
             const parkValue = park.value;
@@ -132,6 +156,7 @@ app.chooseLandmark = function () {
         })
 
     } else if (landmarkValue === 'schools-radio') {
+        app.$selectLocation.attr('name', 'schools-location')
         app.schoolsArray.forEach((school) => {
             const schoolName = school.name;
             const schoolValue = school.value;
@@ -141,7 +166,7 @@ app.chooseLandmark = function () {
         })
     }
 
-    
+
 
 }
 
