@@ -85,8 +85,13 @@ app.parksArray = [
 ]
 
 
-app.handleLandMark = function () {
+app.handleLocation = function () {
     
+    
+
+}
+
+app.chooseLocation = function() {
     $.ajax({
         headers: { 'Accept': 'application/ json' },
         url: 'https://api.citybik.es/v2/networks/bixi-toronto',
@@ -95,7 +100,6 @@ app.handleLandMark = function () {
     }).then((response) => {
         console.log(response);
     })
-
 }
 
 
@@ -104,12 +108,9 @@ app.handleLandMark = function () {
 // INIT FUNCTION
 app.init = function () {
 
-    const $formLandmark = $('.form-landmark');
+    const $formLocation = $('.form-location');
     const $parksRadio = $('.parks-radio');
     const $schoolsRadio = $('.schools-radio');
-    const $buttonLandmark = $('.button-landmark');
-
-    const $formLocation = $('.form-location');
     const $selectLocation = $('.select-location');
 
     const $bikeInfo = $('.bike-info');
@@ -119,7 +120,9 @@ app.init = function () {
 
     const $buttonReset = $('.button-reset');
 
-    $formLandmark.on('click', 'input[type="radio"]', app.handleLandMark);
+    $formLocation.on('click', 'input[type="radio"]', app.handleLocation);
+    $selectLocation.on('change', app.chooseLocation);
+    
 }
 
 // DOCUMENT READY
