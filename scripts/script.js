@@ -96,31 +96,10 @@ app.parksArray = [
     }
 ]
 
-
-app.chooseLandmark = function () {
-    const landmarkValue = $(this).attr('class');
-    app.$selectLocation.html(`<option value=""> Select </option>`);
-
-    if (landmarkValue === 'parks-radio') {
-
-        app.parksArray.forEach((park) => {
-            const parkName = park.name;
-            const parkValue = park.value;
-            app.$selectLocation.append(
-                `<option value=${parkValue}> ${parkName} </option>`
-            )
-
-        })
-
-    } else if (landmarkValue === 'schools-radio') {
-        app.schoolsArray.forEach((school) => {
-            const schoolName = school.name;
-            const schoolValue = school.value;
-            app.$selectLocation.append(
-                `<option value=${schoolValue}> ${schoolName} </option>`
-            )
-        })
-    }
+app.chooseLocation = function() {
+    const locationValue = $(this).attr('class');
+    // $("option:contains('park')");
+    console.log(locationValue);
 
     //Ajax call
     app.chooseLocation = function () {
@@ -133,6 +112,36 @@ app.chooseLandmark = function () {
             // console.log(response);
         })
     }
+
+
+}
+
+app.chooseLandmark = function () {
+    const landmarkValue = $(this).attr('class');
+    app.$selectLocation.html(`<option value=""> Select </option>`);
+
+    if (landmarkValue === 'parks-radio') {
+
+        app.parksArray.forEach((park) => {
+            const parkName = park.name;
+            const parkValue = park.value;
+            app.$selectLocation.append(
+                `<option value=${parkValue} class="park"> ${parkName} </option>`
+            )
+
+        })
+
+    } else if (landmarkValue === 'schools-radio') {
+        app.schoolsArray.forEach((school) => {
+            const schoolName = school.name;
+            const schoolValue = school.value;
+            app.$selectLocation.append(
+                `<option value=${schoolValue} class="school"> ${schoolName} </option>`
+            )
+        })
+    }
+
+    
 
 }
 
