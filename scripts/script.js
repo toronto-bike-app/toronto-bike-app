@@ -86,7 +86,15 @@ app.parksArray = [
 
 
 app.handleLandMark = function () {
-    console.log(this);
+    
+    $.ajax({
+        headers: { 'Accept': 'application/ json' },
+        url: 'https://api.citybik.es/v2/networks/bixi-toronto',
+        dataType: 'json',
+        method: 'GET'
+    }).then((response) => {
+        console.log(response);
+    })
 
 }
 
