@@ -24,6 +24,11 @@
 // NAMESPACE OBJECT
 const app = {};
 
+
+// Arrays for locations
+
+//Arrays for schools
+
 app.schoolsArray = [
     {
         name: "Juno",
@@ -52,77 +57,104 @@ app.schoolsArray = [
     }
 ]
 
+//Arrays for parks
+
 app.parksArray = [
     {
         name: "High Park",
+        value: "high-park",
         lat: 43.6465,
         long: 79.4637
     },
 
     {
         name: "Riverdale Park East",
+        value: "riverdale-park-east",
         lat: 43.6708,
         long: 79.3561
     },
 
     {
         name: "Christie Pits Park",
+        value: "christie-pits-park",
         lat: 43.6646,
         long: 79.4207
     },
 
     {
         name: "Toronto Music Garden",
+        value: "toronto-music-garden",
         lat: 43.636927,
         long: 79.394655
     },
 
     {
         name: "Underpass Park",
+        value: "underpass-park",
         lat: 43.6560117,
         long: 79.355092
     }
 ]
 
 
-app.handleLocation = function () {
-    
-    
+app.chooseLandmark = function () {
+    const landmarkValue = $(this).attr('class');
+    app.$selectLocation.html(`<option value=""> Select </option>`);
+
+    if (landmarkValue === 'parks-radio') {
+
+        app.parksArray.forEach((park) => {
+            const parkName = park.name;
+            const parkValue = park.value;
+            app.$selectLocation.append(
+                `<option value=${parkValue}> ${parkName} </option>`
+            )
+
+        })
+
+    } else if (landmarkValue === 'schools-radio') {
+        app.schoolsArray.forEach((school) => {
+            const schoolName = school.name;
+            const schoolValue = school.value;
+            app.$selectLocation.append(
+                `<option value=${schoolValue}> ${schoolName} </option>`
+            )
+        })
+    }
+
+    //Ajax call
+    app.chooseLocation = function () {
+        $.ajax({
+            headers: { 'Accept': 'application/ json' },
+            url: 'https://api.citybik.es/v2/networks/bixi-toronto',
+            dataType: 'json',
+            method: 'GET'
+        }).then((response) => {
+            // console.log(response);
+        })
+    }
 
 }
-
-app.chooseLocation = function() {
-    $.ajax({
-        headers: { 'Accept': 'application/ json' },
-        url: 'https://api.citybik.es/v2/networks/bixi-toronto',
-        dataType: 'json',
-        method: 'GET'
-    }).then((response) => {
-        console.log(response);
-    })
-}
-
-
 
 
 // INIT FUNCTION
 app.init = function () {
 
-    const $formLocation = $('.form-location');
-    const $parksRadio = $('.parks-radio');
-    const $schoolsRadio = $('.schools-radio');
-    const $selectLocation = $('.select-location');
+    app.$formLocation = $('.form-location');
+    app.$parksRadio = $('.parks-radio');
+    app.$schoolsRadio = $('.schools-radio');
+    app.$selectLocation = $('.select-location');
 
-    const $bikeInfo = $('.bike-info');
-    const $infoLocationName = $('.info-location-name');
-    const $infoLocationImage = $('.info-location-image');
-    const $infoStationList = $('.info-station-list');
+    app.$bikeInfo = $('.bike-info');
+    app.$infoLocationName = $('.info-location-name');
+    app.$infoLocationImage = $('.info-location-image');
+    app.$infoStationList = $('.info-station-list');
 
-    const $buttonReset = $('.button-reset');
+    app.$buttonReset = $('.button-reset');
 
-    $formLocation.on('click', 'input[type="radio"]', app.handleLocation);
-    $selectLocation.on('change', app.chooseLocation);
-    
+    app.$formLocation.on('click', 'input[type="radio"]', app.chooseLandmark);
+    app.$selectLocation.on('change', app.chooseLocation);
+
 }
 
 // DOCUMENT READY
