@@ -9,6 +9,7 @@
     text-align: center;
     margin: 30px 0;
     text-transform: uppercase;
+    font-size: 4rem;
 }
 
 .form-location {
@@ -33,6 +34,31 @@
             text-align: center;
         }
 
+        .radio-label:focus {
+            outline: none;
+        }
+
+        .radio-label:hover span,
+        .radio-label:focus span {
+            background: $orange-yellow;
+            outline: none;
+        }
+
+        input[type="radio"] {
+            position: fixed;
+        }
+
+        input[type="radio"]:checked ~ span {
+            background: $orange-yellow;
+            box-shadow: 0 0 5px 5px $satin-sheen-gold inset;
+        }
+
+        span {
+            padding: 10px 30px; 
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
     }
 
     .dropdown-location {
@@ -41,13 +67,25 @@
         margin: 30px 0;
 
         .select-location {
-            width: 300px;
+            width: 250px;
             text-align: center;
+            @include sansSerif;
+            text-transform: uppercase;
         }
+
 
     }
 
-
+    .button-reset {
+        border: none;
+        padding: 10px 50px;
+        border-radius: 4px;
+        background: $orange-yellow;
+        // @include serif();
+        text-transform: uppercase;
+        // font-weight: bold;
+        letter-spacing: 0.5px;
+    }
 
 }
 

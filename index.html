@@ -32,14 +32,14 @@
         
         <fieldset class="radio-landmarks">
 
-          <label for="parks" class="radio-label">
-            Parks
-            <input type="radio" id="parks" class="parks-radio" name="landmark">
+          <label for="parks" class="radio-label" tabindex="0">
+            <input type="radio" id="parks" class="parks-radio" name="landmark" tabindex="-1">
+            <span>Parks</span>
           </label>
           
-          <label for="schools" class="radio-label">
-            Schools
-            <input type="radio" id="schools" class="schools-radio" name="landmark">
+          <label for="schools" class="radio-label" tabindex="0">
+            <input type="radio" id="schools" class="schools-radio" name="landmark" tabindex="-1">
+            <span>Schools</span>
           </label>
 
         </fieldset>
@@ -49,7 +49,7 @@
           <label for="location" class="select-location-label">
             <span class="sr-only">Locations</span>
             <select name="location" id="location" class="select-location">
-              <option value="">Select Location</option>
+              <option value="">Choose Landmark First</option>
             </select>
           </label>
         
