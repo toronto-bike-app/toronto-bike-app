@@ -9,12 +9,12 @@
 //  Create parks and schools arrays -> five different options Y
 //  .each() through the array, and render to DOM Y
 
-// Dropdown Event Listener
-//  make ajax call -> then method takes results
+// Dropdown Event Listener Y
+//  make ajax call -> then method takes results Y
 //  Create variables for each piece of data needed Y
-//  Lat/Long Function used
-//  Populate html tags with data variables
-//  For ul, we'll need <li> with <h3>, <p>, <ul> with <li><i></li>
+//  Lat/Long Function used Y
+//  Populate html tags with data variables Y
+//  For ul, we'll need <li> with <h3>, <p>, <ul> with <li><i></li> Y
 //  Toggle class to make display section visible
 
 // Reset Button -> Event Listener
@@ -137,7 +137,7 @@ app.callAPI = function (lat, long) {
         // const long = -79.394655;
 
         const data = response.network.stations;
-
+        app.$infoStationList.html('');
         const proximateStations = data.filter((station) => {
             const stationLat = station.latitude;
             const stationLong = station.longitude;
@@ -156,7 +156,7 @@ app.callAPI = function (lat, long) {
 
             stationDistance = distance(lat, long, stationLat, stationLong, "K");
             console.log(station);
-            // app.$infoStationList.html('');
+
             app.$infoStationList.append(`
                 <li>
                     <h3>${station.name}</h3>
@@ -183,6 +183,8 @@ app.callAPI = function (lat, long) {
             }
         })
 
+        app.$bikeInfo.addClass('active');
+
 
         //lat/long
         // School Lat / Long
@@ -200,7 +202,7 @@ app.chooseLocation = function () {
     let lat;
     let long;
 
-    
+
 
     if (landmarkName === 'park-location') {
         app.$infoLocationImage.attr('src', './assets/man-m-ho-aXKD2O6RzNU-unsplash.jpg').attr('alt', 'park with lots of leafy trees with solitary teal bike in the distance')
@@ -226,7 +228,7 @@ app.chooseLocation = function () {
 
     app.$infoLocationName.text(name);
 
-    
+
 
     // CALL AJAX FUNCTION
     app.callAPI(lat, long);
