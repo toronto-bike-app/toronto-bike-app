@@ -379,10 +379,82 @@ header {
 
 .bike-info {
   display: none;
+  margin-top: 50px;
 }
 
 .bike-info.active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.bike-info-left,
+.bike-info-right {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 50%;
+          flex: 1 1 50%;
+}
+
+.bike-info-left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.info-location-name {
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.info-location-image-container {
+  width: 400px;
+}
+
+.info-location-image-container .info-location-image {
+  border-radius: 20px;
+}
+
+.bike-info-right .info-station-list {
+  padding: 0 10px;
+}
+
+.bike-info-right .station {
+  margin-bottom: 30px;
+}
+
+.bike-info-right .station-name {
+  margin-bottom: 5px;
+}
+
+.bike-info-right .station-distance {
+  margin-bottom: 5px;
+}
+
+.bike-info-right .bikes-available {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.bike-info-right .bikes-available li {
+  margin: 0 5px;
+}
+
+.bike-info-right .empty-slots {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-bottom: 10px;
 }

@@ -158,11 +158,11 @@ app.callAPI = function (lat, long) {
             console.log(station);
 
             app.$infoStationList.append(`
-                <li>
-                    <h3>${station.name}</h3>
-                    <p>${stationDistance.toFixed(2)}</p>
+                <li class="station">
+                    <h3 class="station-name">${station.name}</h3>
+                    <p class="station-distance">Distance: ${stationDistance.toFixed(2) * 1000}m away</p>
                     <ul class="bikes-available bikes-available-${station.id}">
-                    
+                    Free Bikes: ${station.free_bikes}
                     </ul>
 
                     <ul class="empty-slots empty-slots-${station.id}">

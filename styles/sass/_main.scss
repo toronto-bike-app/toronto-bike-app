@@ -91,8 +91,68 @@
 
 .bike-info {
     display: none;
+    margin-top: 50px;
 }
 
 .bike-info.active {
     display: flex;
+}
+
+.bike-info-left,
+.bike-info-right {
+    flex: 1 1 50%;
+}
+
+.bike-info-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.info-location-name {
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.info-location-image-container {
+    width: 400px;
+
+    .info-location-image {
+        border-radius: 20px;
+    }
+}
+
+.bike-info-right {
+
+    .info-station-list {
+        padding: 0 10px;
+    }
+
+    .station {
+        margin-bottom: 30px;
+    }
+
+    .station-name {
+        margin-bottom: 5px;
+    }
+
+    .station-distance {
+        margin-bottom: 5px;
+    }
+
+    .bikes-available {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+    }
+
+    .bikes-available li {
+        margin: 0 5px;
+    }
+
+    .empty-slots {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: 10px;
+    }
 }
