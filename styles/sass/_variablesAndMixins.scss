@@ -1,0 +1,16 @@
+// https://coolors.co/fffffa-515052-c8963e-f3b700-ff312e
+
+$neutral: #FFFFFA;
+$grey: #515052;
+$highlight: #FF312E;
+$satin-sheen-gold: #C8963E;
+$orange-yellow: #F3B700;
+
+@mixin serif {
+  font-family: 'Playfair Display', serif;
+
+}
+
+@mixin sansSerif {
+  font-family: 'Muli', sans-serif;
+}
