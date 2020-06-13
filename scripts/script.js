@@ -134,7 +134,7 @@ app.chooseLocation = function () {
     }).then((response) => {
 
         const lat = 43.636927;
-        const long = -79.394655; 
+        const long = -79.394655;
 
         let stationDistance;
 
@@ -143,19 +143,20 @@ app.chooseLocation = function () {
         const proximateStations = data.filter((station) => {
             const stationLat = station.latitude;
             const stationLong = station.longitude;
-            
+
             stationDistance = distance(lat, long, stationLat, stationLong, "K");
 
             if (stationDistance < 0.5) {
+                console.log(station);
 
                 return station;
-                
+
             }
 
         }).forEach((station) => {
             const stationLat = station.latitude;
             const stationLong = station.longitude;
-            
+
             stationDistance = distance(lat, long, stationLat, stationLong, "K");
 
             app.$infoStationList.html('');
@@ -163,11 +164,26 @@ app.chooseLocation = function () {
                 <li>
                     <h3>${station.name}</h3>
                     <p>${stationDistance}</p>
-                    <ul>
-                        
+                    <ul class="bikesAvailable">
+                    
                     </ul>
+
+                    <ul class="emptySlots">
+
+                    </ul>
+                    
                 </li>
             `)
+            for (let i = 1; i <= station.free_bikes; i++) {
+                $('.bikesAvailable').append(
+                    `<li><i class="fas fa-bicycle"></i></li>`
+                )
+            }
+            for (let i = 1; i <= station.empty_slots; i++) {
+                $('.emptySlots').append(
+                    `<li><i class="fas fa-bicycle"></i></li>`
+                )
+            }
         })
 
 
@@ -194,7 +210,7 @@ app.chooseLocation = function () {
                 name = park.name;
                 lat = park.lat;
                 long = park.long;
-                
+
             }
         })
     } else if (locationName === 'schools-location') {
@@ -203,12 +219,12 @@ app.chooseLocation = function () {
                 name = school.name;
                 lat = school.lat;
                 long = school.long;
-                
+
             }
         })
     }
 
-    
+
 
 
 }
