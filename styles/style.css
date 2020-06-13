@@ -307,12 +307,175 @@ header {
   padding-bottom: 2%;
 }
 
+.form-title {
+  text-align: center;
+  margin: 30px 0;
+  text-transform: uppercase;
+  font-size: 4rem;
+}
+
+.form-location {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.form-location fieldset {
+  border: none;
+  width: 100%;
+}
+
+.form-location .radio-landmarks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 30px 0;
+}
+
+.form-location .radio-landmarks .radio-label {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  text-align: center;
+}
+
+.form-location .radio-landmarks .radio-label:focus {
+  outline: none;
+}
+
+.form-location .radio-landmarks .radio-label:hover span,
+.form-location .radio-landmarks .radio-label:focus span {
+  background: #F3B700;
+  outline: none;
+}
+
+.form-location .radio-landmarks input[type="radio"] {
+  position: fixed;
+}
+
+.form-location .radio-landmarks input[type="radio"]:checked ~ span {
+  background: #F3B700;
+  -webkit-box-shadow: 0 0 5px 5px #C8963E inset;
+          box-shadow: 0 0 5px 5px #C8963E inset;
+}
+
+.form-location .radio-landmarks span {
+  padding: 10px 30px;
+  border-radius: 4px;
+  text-transform: uppercase;
+}
+
+.form-location .dropdown-location {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 30px 0;
+}
+
+.form-location .dropdown-location .select-location {
+  width: 250px;
+  text-align: center;
+  font-family: 'Muli', sans-serif;
+  text-transform: uppercase;
+}
+
+.form-location .button-reset {
+  border: none;
+  padding: 10px 50px;
+  border-radius: 4px;
+  background: #F3B700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
 .bike-info {
   display: none;
+  margin-top: 50px;
 }
 
 .bike-info.active {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.bike-info-left,
+.bike-info-right {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 50%;
+          flex: 1 1 50%;
+}
+
+.bike-info-left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.info-location-name {
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.info-location-image-container {
+  width: 400px;
+}
+
+.info-location-image-container .info-location-image {
+  border-radius: 20px;
+}
+
+.bike-info-right .info-station-list {
+  padding: 0 10px;
+}
+
+.bike-info-right .station {
+  margin-bottom: 30px;
+}
+
+.bike-info-right .station-name {
+  margin-bottom: 5px;
+}
+
+.bike-info-right .station-distance {
+  margin-bottom: 5px;
+}
+
+.bike-info-right .bikes-available {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.bike-info-right .bikes-available li {
+  margin: 0 5px;
+}
+
+.bike-info-right .empty-slots {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-bottom: 10px;
 }
