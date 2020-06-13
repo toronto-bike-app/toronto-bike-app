@@ -238,7 +238,7 @@ app.chooseLocation = function () {
 
 app.chooseLandmark = function () {
     const landmarkValue = $(this).attr('class');
-    app.$selectLocation.html(`<option value=""> Select </option>`);
+    app.$selectLocation.html(`<option value=""> Select Location</option>`);
 
     if (landmarkValue === 'parks-radio') {
         app.$selectLocation.attr('name', 'park-location')

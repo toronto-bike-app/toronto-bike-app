@@ -26,18 +26,35 @@
     </header>
 
     <main id="bike-main" class="bike-main">
-      <h2>Choose your location</h2>
+      <h2 class="form-title">Choose your location</h2>
+
       <form class="form-location">
-        <label for="parks">Parks</label>
-        <input type="radio" id="parks" class="parks-radio" name="landmark">
+        
+        <fieldset class="radio-landmarks">
 
-        <label for="schools">Schools</label>
-        <input type="radio" id="schools" class="schools-radio" name="landmark">
+          <label for="parks" class="radio-label">
+            Parks
+            <input type="radio" id="parks" class="parks-radio" name="landmark">
+          </label>
+          
+          <label for="schools" class="radio-label">
+            Schools
+            <input type="radio" id="schools" class="schools-radio" name="landmark">
+          </label>
 
-        <label for="location">Locations</label>
-        <select name="location" id="location" class="select-location">
-          <option value="">Select</option>
-        </select>
+        </fieldset>
+
+        <fieldset class="dropdown-location">
+
+          <label for="location" class="select-location-label">
+            <span class="sr-only">Locations</span>
+            <select name="location" id="location" class="select-location">
+              <option value="">Select Location</option>
+            </select>
+          </label>
+        
+        </fieldset>
+
         <button class="button-reset">Reset</button>
       </form>
 
