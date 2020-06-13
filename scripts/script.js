@@ -125,7 +125,7 @@ function distance(lat1, lon1, lat2, lon2, unit) {
 }
 
 //Ajax call
-app.chooseLocation = function () {
+app.callAPI = function (lat, long) {
     $.ajax({
         headers: { 'Accept': 'application/ json' },
         url: 'https://api.citybik.es/v2/networks/bixi-toronto',
@@ -133,10 +133,8 @@ app.chooseLocation = function () {
         method: 'GET'
     }).then((response) => {
 
-        const lat = 43.636927;
-        const long = -79.394655;
-
-        let stationDistance;
+        // const lat = 43.636927;
+        // const long = -79.394655;
 
         const data = response.network.stations;
 
@@ -144,10 +142,9 @@ app.chooseLocation = function () {
             const stationLat = station.latitude;
             const stationLong = station.longitude;
 
-            stationDistance = distance(lat, long, stationLat, stationLong, "K");
+            const stationDistance = distance(lat, long, stationLat, stationLong, "K");
 
             if (stationDistance < 0.5) {
-                console.log(station);
 
                 return station;
 
@@ -158,29 +155,29 @@ app.chooseLocation = function () {
             const stationLong = station.longitude;
 
             stationDistance = distance(lat, long, stationLat, stationLong, "K");
-
-            app.$infoStationList.html('');
+            console.log(station);
+            // app.$infoStationList.html('');
             app.$infoStationList.append(`
                 <li>
                     <h3>${station.name}</h3>
-                    <p>${stationDistance}</p>
-                    <ul class="bikesAvailable">
+                    <p>${stationDistance.toFixed(2)}</p>
+                    <ul class="bikes-available bikes-available-${station.id}">
                     
                     </ul>
 
-                    <ul class="emptySlots">
+                    <ul class="empty-slots empty-slots-${station.id}">
 
                     </ul>
                     
                 </li>
             `)
             for (let i = 1; i <= station.free_bikes; i++) {
-                $('.bikesAvailable').append(
+                $(`.bikes-available-${station.id}`).append(
                     `<li><i class="fas fa-bicycle"></i></li>`
                 )
             }
             for (let i = 1; i <= station.empty_slots; i++) {
-                $('.emptySlots').append(
+                $(`.empty-slots-${station.id}`).append(
                     `<li><i class="fas fa-bicycle"></i></li>`
                 )
             }
@@ -196,15 +193,17 @@ app.chooseLocation = function () {
     })
 }
 
-app.chooseLocation();
-
 app.chooseLocation = function () {
-    const locationName = $(this).attr('name');
+    const landmarkName = $(this).attr('name');
     const locationValue = $(this).val();
     let name;
     let lat;
     let long;
-    if (locationName === 'park-location') {
+
+    
+
+    if (landmarkName === 'park-location') {
+        app.$infoLocationImage.attr('src', './assets/man-m-ho-aXKD2O6RzNU-unsplash.jpg').attr('alt', 'park with lots of leafy trees with solitary teal bike in the distance')
         app.parksArray.forEach((park) => {
             if (park.value === locationValue) {
                 name = park.name;
@@ -213,7 +212,8 @@ app.chooseLocation = function () {
 
             }
         })
-    } else if (locationName === 'schools-location') {
+    } else if (landmarkName === 'schools-location') {
+        app.$infoLocationImage.attr('src', './assets/ryan-jacobson-cXUOQWdRV4I-unsplash.jpg').attr('alt', 'school campus with lots of trees, near a bike stand with one red bike with yellow tires')
         app.schoolsArray.forEach((school) => {
             if (school.value === locationValue) {
                 name = school.name;
@@ -224,7 +224,12 @@ app.chooseLocation = function () {
         })
     }
 
+    app.$infoLocationName.text(name);
 
+    
+
+    // CALL AJAX FUNCTION
+    app.callAPI(lat, long);
 
 
 }
