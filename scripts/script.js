@@ -266,6 +266,9 @@ app.chooseLandmark = function () {
 
 }
 
+app.replacePage = function () {
+    location.reload(true);
+}
 
 // INIT FUNCTION
 app.init = function () {
@@ -285,7 +288,13 @@ app.init = function () {
     app.$formLocation.on('click', 'input[type="radio"]', app.chooseLandmark);
     app.$selectLocation.on('change', app.chooseLocation);
 
+    app.$buttonReset.on('click', app.replacePage);
+
 }
+
+
+
+
 
 // DOCUMENT READY
 $(document).ready(function () {
