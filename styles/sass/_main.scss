@@ -40,7 +40,8 @@
 
         .radio-label:hover span,
         .radio-label:focus span {
-            background: $orange-yellow;
+            background: $bike-orange;
+            box-shadow: 0 0 5px 5px $satin-sheen-gold inset;
             outline: none;
         }
 
@@ -49,13 +50,14 @@
         }
 
         input[type="radio"]:checked ~ span {
-            background: $orange-yellow;
+            background: $bike-orange;
             box-shadow: 0 0 5px 5px $satin-sheen-gold inset;
         }
 
         span {
             padding: 10px 30px; 
             border-radius: 4px;
+            background: $bike-orange;
             text-transform: uppercase;
         }
 
@@ -80,7 +82,7 @@
         border: none;
         padding: 10px 50px;
         border-radius: 4px;
-        background: $orange-yellow;
+        background: $bike-orange;
         // @include serif();
         text-transform: uppercase;
         // font-weight: bold;

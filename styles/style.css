@@ -352,7 +352,9 @@ header {
 
 .form-location .radio-landmarks .radio-label:hover span,
 .form-location .radio-landmarks .radio-label:focus span {
-  background: #F3B700;
+  background: #ffa246;
+  -webkit-box-shadow: 0 0 5px 5px #C8963E inset;
+          box-shadow: 0 0 5px 5px #C8963E inset;
   outline: none;
 }
 
@@ -361,7 +363,7 @@ header {
 }
 
 .form-location .radio-landmarks input[type="radio"]:checked ~ span {
-  background: #F3B700;
+  background: #ffa246;
   -webkit-box-shadow: 0 0 5px 5px #C8963E inset;
           box-shadow: 0 0 5px 5px #C8963E inset;
 }
@@ -369,6 +371,7 @@ header {
 .form-location .radio-landmarks span {
   padding: 10px 30px;
   border-radius: 4px;
+  background: #ffa246;
   text-transform: uppercase;
 }
 
@@ -393,7 +396,7 @@ header {
   border: none;
   padding: 10px 50px;
   border-radius: 4px;
-  background: #F3B700;
+  background: #ffa246;
   text-transform: uppercase;
   letter-spacing: 0.5px;
 }
