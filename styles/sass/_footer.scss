@@ -9,3 +9,11 @@ footer {
 footer a:hover {
     color: $neutral;
 }
+
+//Media query 
+
+@include cellphone-small-screen {
+    footer p {
+        font-size: 1.15rem;
+    }
+}

@@ -563,3 +563,9 @@ footer {
 footer a:hover {
   color: #FFFFFA;
 }
+
+@media only screen and (max-width: 335px) {
+  footer p {
+    font-size: 1.15rem;
+  }
+}
