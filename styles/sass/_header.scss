@@ -38,3 +38,48 @@ header {
     // font-weight: bold;
     letter-spacing: 0.5px;
 }
+
+//Media Queries
+
+@include tablet-landscape {
+    .intro {
+        left: 35%;
+        top: 20%;
+    }
+
+    .intro h1 {
+        padding-bottom: 40px;
+    }
+    .intro p {
+        display: none;
+    }
+    
+    .button-begin {
+        margin-left: 27%;
+    }
+}
+
+@include cellphone-landscape {
+    .intro {
+        max-width: 100%;
+    }
+}
+
+@include cellphone-landscape-two {
+    .intro {
+        left: 25%;
+    }
+}
+
+@include cellphone-portrait{
+    .intro {
+        left: 15%;
+    }
+}
+
+
+@include cellphone-small-screen {
+    .intro {
+        left: 5%;
+    }
+}

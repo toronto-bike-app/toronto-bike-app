@@ -19,3 +19,36 @@ $font-black: #000;
 @mixin sansSerif {
   font-family: 'Muli', sans-serif;
 }
+
+// Media Queries
+
+@mixin tablet-landscape {
+    @media only screen and (max-width: 1060px) {
+        @content;
+    }
+}
+
+@mixin cellphone-landscape {
+    @media only screen and (max-width: 750px) {
+        @content;
+    }
+}
+
+@mixin cellphone-landscape-two {
+    @media only screen and (max-width: 600px) {
+        @content;
+    }
+}
+
+@mixin cellphone-portrait {
+    @media only screen and (max-width: 500px) {
+        @content;
+    }
+}
+
+@mixin cellphone-small-screen {
+    @media only screen and (max-width: 335px) {
+        @content;
+    }
+}
+

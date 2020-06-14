@@ -317,6 +317,46 @@ header {
   letter-spacing: 0.5px;
 }
 
+@media only screen and (max-width: 1060px) {
+  .intro {
+    left: 35%;
+    top: 20%;
+  }
+  .intro h1 {
+    padding-bottom: 40px;
+  }
+  .intro p {
+    display: none;
+  }
+  .button-begin {
+    margin-left: 27%;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .intro {
+    max-width: 100%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .intro {
+    left: 25%;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .intro {
+    left: 15%;
+  }
+}
+
+@media only screen and (max-width: 335px) {
+  .intro {
+    left: 5%;
+  }
+}
+
 .form-title {
   text-align: center;
   margin: 30px 0;
