@@ -364,15 +364,11 @@ header {
   text-align: center;
 }
 
-.form-location .radio-landmarks .radio-label:focus {
-  outline: none;
+.form-location .radio-landmarks .radio-label:hover {
+  cursor: pointer;
 }
 
-.form-location .radio-landmarks .radio-label:hover span,
-.form-location .radio-landmarks .radio-label:focus span {
-  background: #ffa246;
-  -webkit-box-shadow: 0 0 5px 5px #b64900 inset;
-          box-shadow: 0 0 5px 5px #b64900 inset;
+.form-location .radio-landmarks .radio-label:focus {
   outline: none;
 }
 
@@ -384,6 +380,14 @@ header {
   background: #ffa246;
   -webkit-box-shadow: 0 0 5px 5px #b64900 inset;
           box-shadow: 0 0 5px 5px #b64900 inset;
+}
+
+.form-location .radio-landmarks input[type="radio"]:hover ~ span,
+.form-location .radio-landmarks input[type="radio"]:focus ~ span {
+  background: #ffa246;
+  -webkit-box-shadow: 0 0 5px 5px #b64900 inset;
+          box-shadow: 0 0 5px 5px #b64900 inset;
+  outline: none;
 }
 
 .form-location .radio-landmarks span {
@@ -464,10 +468,15 @@ header {
   margin: 20px 0;
 }
 
+.button-reset:hover {
+  cursor: pointer;
+}
+
 .button-reset:hover,
 .button-reset:focus {
   -webkit-box-shadow: 0 0 5px 5px #b64900 inset;
           box-shadow: 0 0 5px 5px #b64900 inset;
+  outline: none;
 }
 
 .bike-info-right .info-station-list {

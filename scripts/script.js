@@ -170,7 +170,7 @@ app.callAPI = function (lat, long) {
             `)
             for (let i = 1; i <= station.free_bikes; i++) {
                 $(`.bikes-available-list-${station.id}`).append(
-                    `<li><i class="fas fa-bicycle bike-icon"></i></li>`
+                    `<li><i class="fas fa-bicycle bike-icon" aria-label="1 bike of ${station.free_bikes} available"></i></li>`
                 )
             }
         })
@@ -180,13 +180,6 @@ app.callAPI = function (lat, long) {
         // Scrolls to the top of the bike-info section
         app.$bikeInfo[0].scrollIntoView({ behavior: "smooth" });
 
-
-        //lat/long
-        // School Lat / Long
-        // Declare distance function 
-
-
-        // Create variables for (1) empty slots, (2) free bikes, (3) lat, (4) long, and (5) intersection name, (6) id.
     })
 
 

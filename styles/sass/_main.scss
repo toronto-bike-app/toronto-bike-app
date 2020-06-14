@@ -34,16 +34,15 @@
             text-align: center;
         }
 
+        .radio-label:hover {
+            cursor: pointer;
+        }
+
         .radio-label:focus {
             outline: none;
         }
 
-        .radio-label:hover span,
-        .radio-label:focus span {
-            background: $bike-orange;
-            box-shadow: 0 0 5px 5px $dark-bike-orange inset;
-            outline: none;
-        }
+        
 
         input[type="radio"] {
             position: fixed;
@@ -54,11 +53,15 @@
             box-shadow: 0 0 5px 5px $dark-bike-orange inset;
         }
 
+        input[type="radio"]:hover ~ span,
+        input[type="radio"]:focus ~ span {
+            background: $bike-orange;
+            box-shadow: 0 0 5px 5px $dark-bike-orange inset;
+            outline: none;
+        }
+
         span {
             padding: 10px 30px; 
-            // border-radius: 4px;
-            // background: $bike-orange;
-            // text-transform: uppercase;
         }
 
     }
@@ -128,9 +131,14 @@
         margin: 20px 0;
     }
 
+.button-reset:hover {
+    cursor: pointer;
+}
+
 .button-reset:hover,
 .button-reset:focus {
     box-shadow: 0 0 5px 5px $dark-bike-orange inset;
+    outline: none;
 }
 
 .bike-info-right {
