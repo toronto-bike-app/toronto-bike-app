@@ -6,11 +6,29 @@ footer {
     font-size: 1.6rem;
 }
 
+footer h4{
+    color: $font-black;
+}
+
+footer p{
+    padding: 2px 0;
+}
+
+footer a {
+    text-decoration: underline;
+}
+
 footer a:hover {
     color: $neutral;
 }
 
 //Media query 
+
+@include cellphone-portrait {
+    footer {
+        text-align: left;
+    }
+}
 
 @include cellphone-small-screen {
     footer p {

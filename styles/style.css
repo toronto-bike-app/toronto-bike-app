@@ -552,6 +552,21 @@ header {
   font-size: 2rem;
 }
 
+@media only screen and (max-width: 750px) {
+  .bike-info.active {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .info-location-image-container {
+    width: 300px;
+  }
+}
+
 footer {
   background-color: #ffa246;
   padding: 15px;
@@ -560,8 +575,26 @@ footer {
   font-size: 1.6rem;
 }
 
+footer h4 {
+  color: #000;
+}
+
+footer p {
+  padding: 2px 0;
+}
+
+footer a {
+  text-decoration: underline;
+}
+
 footer a:hover {
   color: #FFFFFA;
+}
+
+@media only screen and (max-width: 500px) {
+  footer {
+    text-align: left;
+  }
 }
 
 @media only screen and (max-width: 335px) {

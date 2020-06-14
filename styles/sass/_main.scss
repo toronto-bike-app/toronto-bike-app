@@ -173,3 +173,19 @@
         font-size: 2rem;
     }
 }
+
+// Media Query
+
+@include cellphone-landscape {
+    .bike-info.active {
+    flex-direction: column;
+}
+
+}
+
+@include cellphone-portrait{
+.info-location-image-container {
+    width: 300px;
+}
+}
+
