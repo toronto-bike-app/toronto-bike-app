@@ -155,35 +155,30 @@ app.callAPI = function (lat, long) {
             const stationLong = station.longitude;
 
             stationDistance = distance(lat, long, stationLat, stationLong, "K");
-            console.log(station);
 
             app.$infoStationList.append(`
                 <li class="station">
                     <h3 class="station-name">${station.name}</h3>
                     <p class="station-distance">Distance: ${stationDistance.toFixed(2) * 1000}m away</p>
-                    <ul class="bikes-available bikes-available-${station.id}">
-                    Free Bikes: ${station.free_bikes}
+                    <p class="bikes-available">Free Bikes: ${station.free_bikes}</p>
+                    <ul class="bikes-available-list bikes-available-list-${station.id}">
+                    
                     </ul>
 
-                    <ul class="empty-slots empty-slots-${station.id}">
-
-                    </ul>
                     
                 </li>
             `)
             for (let i = 1; i <= station.free_bikes; i++) {
-                $(`.bikes-available-${station.id}`).append(
-                    `<li><i class="fas fa-bicycle"></i></li>`
-                )
-            }
-            for (let i = 1; i <= station.empty_slots; i++) {
-                $(`.empty-slots-${station.id}`).append(
-                    `<li><i class="fas fa-bicycle"></i></li>`
+                $(`.bikes-available-list-${station.id}`).append(
+                    `<li><i class="fas fa-bicycle bike-icon"></i></li>`
                 )
             }
         })
 
         app.$bikeInfo.addClass('active');
+
+        // Scrolls to the top of the bike-info section
+        app.$bikeInfo[0].scrollIntoView({ behavior: "smooth" });
 
 
         //lat/long
@@ -193,6 +188,9 @@ app.callAPI = function (lat, long) {
 
         // Create variables for (1) empty slots, (2) free bikes, (3) lat, (4) long, and (5) intersection name, (6) id.
     })
+
+
+
 }
 
 app.chooseLocation = function () {
@@ -233,7 +231,7 @@ app.chooseLocation = function () {
     // CALL AJAX FUNCTION
     app.callAPI(lat, long);
 
-
+    
 }
 
 app.chooseLandmark = function () {

@@ -41,7 +41,7 @@
         .radio-label:hover span,
         .radio-label:focus span {
             background: $bike-orange;
-            box-shadow: 0 0 5px 5px $satin-sheen-gold inset;
+            box-shadow: 0 0 5px 5px $dark-bike-orange inset;
             outline: none;
         }
 
@@ -51,14 +51,14 @@
 
         input[type="radio"]:checked ~ span {
             background: $bike-orange;
-            box-shadow: 0 0 5px 5px $satin-sheen-gold inset;
+            box-shadow: 0 0 5px 5px $dark-bike-orange inset;
         }
 
         span {
             padding: 10px 30px; 
-            border-radius: 4px;
-            background: $bike-orange;
-            text-transform: uppercase;
+            // border-radius: 4px;
+            // background: $bike-orange;
+            // text-transform: uppercase;
         }
 
     }
@@ -75,19 +75,17 @@
             text-transform: uppercase;
         }
 
+        .select-location:hover,
+        .select-location:focus {
+            outline: none;
+            border-color: $bike-orange;
+            border-style: solid;
+        }
+
 
     }
 
-    .button-reset {
-        border: none;
-        padding: 10px 50px;
-        border-radius: 4px;
-        background: $bike-orange;
-        // @include serif();
-        text-transform: uppercase;
-        // font-weight: bold;
-        letter-spacing: 0.5px;
-    }
+    
 
 }
 
@@ -124,6 +122,17 @@
     }
 }
 
+.button-reset {
+        padding: 10px 50px;
+        letter-spacing: 0.5px;
+        margin: 20px 0;
+    }
+
+.button-reset:hover,
+.button-reset:focus {
+    box-shadow: 0 0 5px 5px $dark-bike-orange inset;
+}
+
 .bike-info-right {
 
     .info-station-list {
@@ -142,19 +151,17 @@
         margin-bottom: 5px;
     }
 
-    .bikes-available {
+    .bikes-available-list {
         display: flex;
         flex-wrap: wrap;
         margin-bottom: 10px;
     }
 
-    .bikes-available li {
+    .bikes-available-list li {
         margin: 0 5px;
     }
 
-    .empty-slots {
-        display: flex;
-        flex-wrap: wrap;
-        margin-bottom: 10px;
+    .bike-icon {
+        font-size: 2rem;
     }
 }
