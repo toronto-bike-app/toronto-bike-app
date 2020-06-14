@@ -305,6 +305,16 @@ header {
   color: #000;
   font-size: 2rem;
   padding-bottom: 2%;
+  margin-bottom: 20px;
+}
+
+.button-begin {
+  border: none;
+  padding: 10px 40px;
+  border-radius: 4px;
+  background: #ffa246;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .form-title {
@@ -481,4 +491,11 @@ header {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   margin-bottom: 10px;
+}
+
+footer {
+  background-color: #FFD700;
+  padding: 10px;
+  text-align: right;
+  margin-top: 40px;
 }

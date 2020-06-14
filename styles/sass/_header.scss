@@ -25,4 +25,16 @@ header {
     color: $font-black;
     font-size: 2rem;
     padding-bottom: 2%;
+    margin-bottom: 20px;
+}
+
+.button-begin {
+    border: none;
+    padding: 10px 40px;
+    border-radius: 4px;
+    background: $bike-orange;
+    // @include serif();
+    text-transform: uppercase;
+    // font-weight: bold;
+    letter-spacing: 0.5px;
 }
