@@ -495,7 +495,12 @@ header {
 
 footer {
   background-color: #ffa246;
-  padding: 10px;
+  padding: 15px;
   text-align: right;
   margin-top: 40px;
+  font-size: 1.6rem;
+}
+
+footer a:hover {
+  color: #FFFFFA;
 }
