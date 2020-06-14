@@ -133,9 +133,6 @@ app.callAPI = function (lat, long) {
         method: 'GET'
     }).then((response) => {
 
-        // const lat = 43.636927;
-        // const long = -79.394655;
-
         const data = response.network.stations;
         app.$infoStationList.html('');
         const proximateStations = data.filter((station) => {
