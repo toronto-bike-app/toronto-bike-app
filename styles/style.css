@@ -317,12 +317,15 @@ header {
 }
 
 .button-begin {
-  border: none;
   padding: 10px 40px;
-  border-radius: 4px;
-  background: #ffa246;
-  text-transform: uppercase;
   letter-spacing: 0.5px;
+}
+
+.button-begin:hover,
+.button-begin:focus {
+  -webkit-box-shadow: 0 0 5px 5px #b64900 inset;
+          box-shadow: 0 0 5px 5px #b64900 inset;
+  outline: none;
 }
 
 @media only screen and (max-width: 1060px) {

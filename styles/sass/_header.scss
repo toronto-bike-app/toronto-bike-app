@@ -29,14 +29,14 @@ header {
 }
 
 .button-begin {
-    border: none;
     padding: 10px 40px;
-    border-radius: 4px;
-    background: $bike-orange;
-    // @include serif();
-    text-transform: uppercase;
-    // font-weight: bold;
     letter-spacing: 0.5px;
+}
+
+.button-begin:hover,
+.button-begin:focus {
+    box-shadow: 0 0 5px 5px $dark-bike-orange inset;
+    outline: none;
 }
 
 //Media Queries
