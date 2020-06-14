@@ -15,11 +15,13 @@
 //  Lat/Long Function used Y
 //  Populate html tags with data variables Y
 //  For ul, we'll need <li> with <h3>, <p>, <ul> with <li><i></li> Y
-//  Toggle class to make display section visible
+//  Toggle class to make display section visible Y
 
-// Reset Button -> Event Listener
-//  Toggle Class of display section to make invisible
-//  Reset Forms
+// Reset Button -> Event Listener Y
+//  Toggle Class of display section to make invisible Y
+//  Reset Forms Y
+
+//Lets add some pseudocode as I did in HTML I believe it makes it easy to read through code - J
 
 // NAMESPACE OBJECT
 const app = {};
@@ -221,7 +223,7 @@ app.chooseLocation = function () {
     // CALL AJAX FUNCTION
     app.callAPI(lat, long);
 
-    
+
 }
 
 app.chooseLandmark = function () {
