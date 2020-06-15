@@ -46,28 +46,24 @@ app.parksArray = [
         lat: 43.6465,
         long: -79.4637
     },
-
     {
         name: "Riverdale Park East",
         value: "riverdale-park-east",
         lat: 43.6708,
         long: -79.3561
     },
-
     {
         name: "Christie Pits Park",
         value: "christie-pits-park",
         lat: 43.6646,
         long: -79.4207
     },
-
     {
         name: "Toronto Music Garden",
         value: "toronto-music-garden",
         lat: 43.636927,
         long: -79.394655
     },
-
     {
         name: "Underpass Park",
         value: "underpass-park",
@@ -134,12 +130,10 @@ app.callAPI = function (lat, long) {
 
             // If less than 0.5km, keep the station in an array
             if (stationDistance < 0.5) {
-
                 return station;
-
             }
-        
-        // Uses filtered array to render to DOM
+
+            // Uses filtered array to render to DOM
         }).forEach((station) => {
             const stationLat = station.latitude;
             const stationLong = station.longitude;
@@ -156,8 +150,6 @@ app.callAPI = function (lat, long) {
                     <ul class="bikes-available-list bikes-available-list-${station.id}">
                     
                     </ul>
-
-                    
                 </li>
             `)
             // Renders to nested unordered list
@@ -174,7 +166,6 @@ app.callAPI = function (lat, long) {
 
         // Scrolls to the top of the bike-info section
         app.$bikeInfo[0].scrollIntoView({ behavior: "smooth" });
-
     })
 }
 
@@ -200,7 +191,6 @@ app.chooseLocation = function () {
                 name = park.name;
                 lat = park.lat;
                 long = park.long;
-
             }
         })
     } else if (landmarkName === 'schools-location') {
@@ -210,7 +200,6 @@ app.chooseLocation = function () {
                 name = school.name;
                 lat = school.lat;
                 long = school.long;
-
             }
         })
     }
@@ -220,7 +209,6 @@ app.chooseLocation = function () {
 
     // Calls Ajax function
     app.callAPI(lat, long);
-
 
 }
 
@@ -243,7 +231,6 @@ app.chooseLandmark = function () {
             app.$selectLocation.append(
                 `<option value=${parkValue} class="park"> ${parkName} </option>`
             )
-
         })
 
     } else if (landmarkValue === 'schools-radio') {
@@ -257,7 +244,6 @@ app.chooseLandmark = function () {
         })
     }
 }
-
 
 
 // INIT FUNCTION

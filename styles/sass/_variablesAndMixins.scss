@@ -16,7 +16,7 @@ $font-black: #000;
   font-family: 'Muli', sans-serif;
 }
 
-// Media Queries
+// Media Query mixins
 
 @mixin tablet-landscape {
     @media only screen and (max-width: 1060px) {
