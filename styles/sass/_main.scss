@@ -44,14 +44,14 @@
         }
 
         input[type="radio"]:checked ~ span {
-            background: $bike-orange;
-            box-shadow: 0 0 5px 5px $dark-bike-orange inset;
+            background: $highlight;
+            box-shadow: 0 0 5px 5px $highlight-dark inset;
         }
 
         input[type="radio"]:hover ~ span,
         input[type="radio"]:focus ~ span {
-            background: $bike-orange;
-            box-shadow: 0 0 5px 5px $dark-bike-orange inset;
+            background: $highlight;
+            box-shadow: 0 0 5px 5px $highlight-dark inset;
             outline: none;
         }
 
@@ -76,7 +76,7 @@
         .select-location:hover,
         .select-location:focus {
             outline: none;
-            border-color: $bike-orange;
+            border-color: $highlight;
             border-style: solid;
         }
 
@@ -130,7 +130,7 @@
 
     .button-reset:hover,
     .button-reset:focus {
-        box-shadow: 0 0 5px 5px $dark-bike-orange inset;
+        box-shadow: 0 0 5px 5px $highlight-dark inset;
         outline: none;
     }
 
@@ -179,8 +179,14 @@
 }
 
 @include cellphone-portrait {
-    .info-location-image-container {
-        width: 300px;
+
+    .bike-info-left {
+
+        .info-location-image-container {
+            width: 300px;
+        }
+
     }
+    
 }
 

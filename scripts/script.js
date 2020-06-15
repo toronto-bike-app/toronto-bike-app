@@ -1,34 +1,9 @@
-// Create namespace object Y
-// Document Ready Y
-// Init Function Y
-// Create variable DOM selectors Y
-// Begin button needs id to scroll to main section Y
-
-
-// Landmark Submit button -> Create Event Listener
-//  Create parks and schools arrays -> five different options Y
-//  .each() through the array, and render to DOM Y
-
-// Dropdown Event Listener Y
-//  make ajax call -> then method takes results Y
-//  Create variables for each piece of data needed Y
-//  Lat/Long Function used Y
-//  Populate html tags with data variables Y
-//  For ul, we'll need <li> with <h3>, <p>, <ul> with <li><i></li> Y
-//  Toggle class to make display section visible Y
-
-// Reset Button -> Event Listener Y
-//  Toggle Class of display section to make invisible Y
-//  Reset Forms Y
-
-//Lets add some pseudocode as I did in HTML I believe it makes it easy to read through code - J
-
 // NAMESPACE OBJECT
 const app = {};
 
 // LOCATION ARRAYS
 
-// SCHOOLS ARRAY -T
+// SCHOOLS ARRAY
 
 app.schoolsArray = [
     {
@@ -63,7 +38,7 @@ app.schoolsArray = [
     }
 ]
 
-// PARKS ARRAY -T
+// PARKS ARRAY
 app.parksArray = [
     {
         name: "High Park",
@@ -101,13 +76,12 @@ app.parksArray = [
     }
 ]
 
-// SEARCH AGAIN BUTTON FUNCTION -T
-// (Rename searchAgain?) -T
+// SEARCH AGAIN BUTTON FUNCTION
 app.replacePage = function () {
     location.reload(true);
 }
 
-// DISTANCE FUNCTION -T
+// DISTANCE FUNCTION
 // Called within the Ajax Call function
 // Function created by:
 // GeoDataSource.com (C) All Rights Reserved 2018
@@ -134,7 +108,7 @@ function distance(lat1, lon1, lat2, lon2, unit) {
 }
 
 // AJAX CALL FUNCTION 
-// Called from within the Choose Location function -T
+// Called from within the Choose Location function
 app.callAPI = function (lat, long) {
     $.ajax({
         // This headers parameter somehow allowed us to get past a CORS errors; we don't exactly know why
@@ -147,15 +121,15 @@ app.callAPI = function (lat, long) {
 
         const data = response.network.stations;
 
-        // Clears out list before data is displayed -T
+        // Clears out list before data is displayed
         app.$infoStationList.html('');
 
-        // Filters the API data based on distance from location -T
+        // Filters the API data based on distance from location
         const proximateStations = data.filter((station) => {
             const stationLat = station.latitude;
             const stationLong = station.longitude;
 
-            // Calls Distance function, which will determine the distance between two locations -T
+            // Calls Distance function, which will determine the distance between two locations
             const stationDistance = distance(lat, long, stationLat, stationLong, "K");
 
             // If less than 0.5km, keep the station in an array
@@ -165,14 +139,14 @@ app.callAPI = function (lat, long) {
 
             }
         
-        // Uses filtered array to render to DOM -T
+        // Uses filtered array to render to DOM
         }).forEach((station) => {
             const stationLat = station.latitude;
             const stationLong = station.longitude;
 
             stationDistance = distance(lat, long, stationLat, stationLong, "K");
 
-            // Renders to unordered list -T
+            // Renders to unordered list
             // Station name, distance, and number of free bikes
             app.$infoStationList.append(`
                 <li class="station">
@@ -186,7 +160,7 @@ app.callAPI = function (lat, long) {
                     
                 </li>
             `)
-            // Renders to nested unordered list -T
+            // Renders to nested unordered list
             // List of bike icons for each one available
             for (let i = 1; i <= station.free_bikes; i++) {
                 $(`.bikes-available-list-${station.id}`).append(
@@ -195,7 +169,7 @@ app.callAPI = function (lat, long) {
             }
         })
 
-        // Makes the bike-active section visible to user -T
+        // Makes the bike-active section visible to user
         app.$bikeInfo.addClass('active');
 
         // Scrolls to the top of the bike-info section
@@ -205,20 +179,20 @@ app.callAPI = function (lat, long) {
 }
 
 // CHOOSE LOCATION FUNCTION 
-// Callback function when user selects location from dropdown menu -T
+// Callback function when user selects location from dropdown menu
 app.chooseLocation = function () {
 
-    // Gather the selected landmark type (Park or School) -T
+    // Gather the selected landmark type (Park or School)
     const landmarkName = $(this).attr('name');
 
-    // Gathers name of location -T
+    // Gathers name of location
     const locationValue = $(this).val();
     let name;
     let lat;
     let long;
 
     // Conditional that renders image and gathers name, lat, and long from appropriate location array 
-    // lat and long are used as arguments for Call API function below -T
+    // lat and long are used as arguments for Call API function below
     if (landmarkName === 'park-location') {
         app.$infoLocationImage.attr('src', './assets/man-m-ho-aXKD2O6RzNU-unsplash.jpg').attr('alt', 'park with lots of leafy trees with solitary teal bike in the distance')
         app.parksArray.forEach((park) => {
@@ -241,10 +215,10 @@ app.chooseLocation = function () {
         })
     }
 
-    // Renders location name to bike-info section -T
+    // Renders location name to bike-info section
     app.$infoLocationName.text(name);
 
-    // Calls Ajax function -T
+    // Calls Ajax function
     app.callAPI(lat, long);
 
 
@@ -257,10 +231,10 @@ app.chooseLandmark = function () {
     // Class name will determine the landmark type
     const landmarkValue = $(this).attr('class');
 
-    // Populates select dropdown with a default option -T
+    // Populates select dropdown with a default option
     app.$selectLocation.html(`<option value="">Select Location</option>`);
 
-    // Conditional that loops through appropriate location array and renders options into select dropdown -T
+    // Conditional that loops through appropriate location array and renders options into select dropdown
     if (landmarkValue === 'parks-radio') {
         app.$selectLocation.attr('name', 'park-location')
         app.parksArray.forEach((park) => {
@@ -289,6 +263,8 @@ app.chooseLandmark = function () {
 // INIT FUNCTION
 app.init = function () {
 
+    // SELECTOR VARIABLES
+
     app.$formLocation = $('.form-location');
     app.$parksRadio = $('.parks-radio');
     app.$schoolsRadio = $('.schools-radio');
@@ -301,9 +277,10 @@ app.init = function () {
 
     app.$buttonReset = $('.button-reset');
 
+    // EVENT LISTENERS
+
     app.$formLocation.on('click', 'input[type="radio"]', app.chooseLandmark);
     app.$selectLocation.on('change', app.chooseLocation);
-
     app.$buttonReset.on('click', app.replacePage);
 
 }

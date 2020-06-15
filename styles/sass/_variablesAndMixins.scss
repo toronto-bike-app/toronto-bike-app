@@ -1,17 +1,11 @@
-// https://coolors.co/fffffa-515052-c8963e-f3b700-ff312e
-// We can delete this -T
-
-// As discussed remove the additiona; colors we are not using -J
+// COLOURS
 $neutral: #FFFFFA;
-$grey: #515052;
-$highlight: #FF312E;
-$satin-sheen-gold: #C8963E;
-$orange-yellow: #F3B700;
-$bike-blue: #394A7F;
-$dark-bike-orange: #b64900;
-$bike-orange: #ffa246;
+$header-primary: #394A7F;
+$highlight-dark: #b64900;
+$highlight: #ffa246;
 $font-black: #000;
 
+// FONTS 
 
 @mixin serif {
   font-family: 'Playfair Display', serif;
