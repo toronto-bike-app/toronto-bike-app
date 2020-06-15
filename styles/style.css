@@ -492,31 +492,31 @@ header {
           align-items: center;
 }
 
-.info-location-name {
+.bike-info-left .info-location-name {
   text-transform: uppercase;
   margin-bottom: 10px;
 }
 
-.info-location-image-container {
+.bike-info-left .info-location-image-container {
   width: 400px;
 }
 
-.info-location-image-container .info-location-image {
+.bike-info-left .info-location-image-container .info-location-image {
   border-radius: 20px;
 }
 
-.button-reset {
+.bike-info-left .button-reset {
   padding: 10px 50px;
   letter-spacing: 0.5px;
   margin: 20px 0;
 }
 
-.button-reset:hover {
+.bike-info-left .button-reset:hover {
   cursor: pointer;
 }
 
-.button-reset:hover,
-.button-reset:focus {
+.bike-info-left .button-reset:hover,
+.bike-info-left .button-reset:focus {
   -webkit-box-shadow: 0 0 5px 5px #b64900 inset;
           box-shadow: 0 0 5px 5px #b64900 inset;
   outline: none;

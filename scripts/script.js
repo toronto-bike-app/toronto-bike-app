@@ -26,10 +26,9 @@
 // NAMESPACE OBJECT
 const app = {};
 
+// LOCATION ARRAYS
 
-// Arrays for locations
-
-//Arrays for schools
+// SCHOOLS ARRAY -T
 
 app.schoolsArray = [
     {
@@ -64,8 +63,7 @@ app.schoolsArray = [
     }
 ]
 
-//Arrays for parks
-
+// PARKS ARRAY -T
 app.parksArray = [
     {
         name: "High Park",
@@ -103,6 +101,15 @@ app.parksArray = [
     }
 ]
 
+// SEARCH AGAIN BUTTON FUNCTION -T
+// (Rename searchAgain?) -T
+app.replacePage = function () {
+    location.reload(true);
+}
+
+// DISTANCE FUNCTION -T
+// Called within the Ajax Call function
+// Function created by:
 // GeoDataSource.com (C) All Rights Reserved 2018
 function distance(lat1, lon1, lat2, lon2, unit) {
     if ((lat1 == lat2) && (lon1 == lon2)) {
@@ -126,9 +133,12 @@ function distance(lat1, lon1, lat2, lon2, unit) {
     }
 }
 
-//Ajax call
+// AJAX CALL FUNCTION 
+// Called from within the Choose Location function -T
 app.callAPI = function (lat, long) {
     $.ajax({
+        // This headers parameter somehow allowed us to get past a CORS errors; we don't exactly know why
+        // ¯\_(ツ)_/¯
         headers: { 'Accept': 'application/ json' },
         url: 'https://api.citybik.es/v2/networks/bixi-toronto',
         dataType: 'json',
@@ -136,25 +146,34 @@ app.callAPI = function (lat, long) {
     }).then((response) => {
 
         const data = response.network.stations;
+
+        // Clears out list before data is displayed -T
         app.$infoStationList.html('');
+
+        // Filters the API data based on distance from location -T
         const proximateStations = data.filter((station) => {
             const stationLat = station.latitude;
             const stationLong = station.longitude;
 
+            // Calls Distance function, which will determine the distance between two locations -T
             const stationDistance = distance(lat, long, stationLat, stationLong, "K");
 
+            // If less than 0.5km, keep the station in an array
             if (stationDistance < 0.5) {
 
                 return station;
 
             }
-
+        
+        // Uses filtered array to render to DOM -T
         }).forEach((station) => {
             const stationLat = station.latitude;
             const stationLong = station.longitude;
 
             stationDistance = distance(lat, long, stationLat, stationLong, "K");
 
+            // Renders to unordered list -T
+            // Station name, distance, and number of free bikes
             app.$infoStationList.append(`
                 <li class="station">
                     <h3 class="station-name">${station.name}</h3>
@@ -167,6 +186,8 @@ app.callAPI = function (lat, long) {
                     
                 </li>
             `)
+            // Renders to nested unordered list -T
+            // List of bike icons for each one available
             for (let i = 1; i <= station.free_bikes; i++) {
                 $(`.bikes-available-list-${station.id}`).append(
                     `<li><i class="fas fa-bicycle bike-icon" aria-label="1 bike of ${station.free_bikes} available"></i></li>`
@@ -174,26 +195,30 @@ app.callAPI = function (lat, long) {
             }
         })
 
+        // Makes the bike-active section visible to user -T
         app.$bikeInfo.addClass('active');
 
         // Scrolls to the top of the bike-info section
         app.$bikeInfo[0].scrollIntoView({ behavior: "smooth" });
 
     })
-
-
-
 }
 
+// CHOOSE LOCATION FUNCTION 
+// Callback function when user selects location from dropdown menu -T
 app.chooseLocation = function () {
+
+    // Gather the selected landmark type (Park or School) -T
     const landmarkName = $(this).attr('name');
+
+    // Gathers name of location -T
     const locationValue = $(this).val();
     let name;
     let lat;
     let long;
 
-
-
+    // Conditional that renders image and gathers name, lat, and long from appropriate location array 
+    // lat and long are used as arguments for Call API function below -T
     if (landmarkName === 'park-location') {
         app.$infoLocationImage.attr('src', './assets/man-m-ho-aXKD2O6RzNU-unsplash.jpg').attr('alt', 'park with lots of leafy trees with solitary teal bike in the distance')
         app.parksArray.forEach((park) => {
@@ -216,20 +241,26 @@ app.chooseLocation = function () {
         })
     }
 
+    // Renders location name to bike-info section -T
     app.$infoLocationName.text(name);
 
-
-
-    // CALL AJAX FUNCTION
+    // Calls Ajax function -T
     app.callAPI(lat, long);
 
 
 }
 
+// CHOOSE LANDMARK FUNCTION 
+// Callback when user selects either "Park" or "School"
 app.chooseLandmark = function () {
-    const landmarkValue = $(this).attr('class');
-    app.$selectLocation.html(`<option value=""> Select Location</option>`);
 
+    // Class name will determine the landmark type
+    const landmarkValue = $(this).attr('class');
+
+    // Populates select dropdown with a default option -T
+    app.$selectLocation.html(`<option value="">Select Location</option>`);
+
+    // Conditional that loops through appropriate location array and renders options into select dropdown -T
     if (landmarkValue === 'parks-radio') {
         app.$selectLocation.attr('name', 'park-location')
         app.parksArray.forEach((park) => {
@@ -251,14 +282,9 @@ app.chooseLandmark = function () {
             )
         })
     }
-
-
-
 }
 
-app.replacePage = function () {
-    location.reload(true);
-}
+
 
 // INIT FUNCTION
 app.init = function () {
@@ -282,11 +308,5 @@ app.init = function () {
 
 }
 
-
-
-
-
 // DOCUMENT READY
-$(document).ready(function () {
-    app.init();
-});
+$(document).ready(function () { app.init() });
