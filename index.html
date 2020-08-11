@@ -46,26 +46,36 @@
 
         <fieldset class="radio-landmarks">
 
-          <label for="parks" class="radio-label">
-            <input type="radio" id="parks" class="parks-radio" name="landmark">
-            <span class="button">Parks</span>
-          </label>
+          <div class="radio-labels-container">
 
-          <label for="schools" class="radio-label">
-            <input type="radio" id="schools" class="schools-radio" name="landmark">
-            <span class="button">Schools</span>
-          </label>
+            <label for="parks" class="radio-label">
+              <input type="radio" id="parks" class="parks-radio" name="landmark">
+              <span class="button">Parks</span>
+            </label>
+
+            <label for="schools" class="radio-label">
+              <input type="radio" id="schools" class="schools-radio" name="landmark">
+              <span class="button">Schools</span>
+            </label>
+            
+          </div>
 
         </fieldset>
 
         <fieldset class="dropdown-location">
 
-          <label for="location" class="select-location-label">
-            <span class="sr-only">Locations</span>
-            <select name="location" id="location" class="select-location">
-              <option value="">Choose Landmark First</option>
-            </select>
-          </label>
+          <legend class="sr-only">Select A Location</legend>
+
+          <div class="select-location-container">
+
+            <label for="location" class="select-location-label">
+              <span class="sr-only">Locations</span>
+              <select name="location" id="location" class="select-location">
+                <option value="">Choose Landmark First</option>
+              </select>
+            </label>
+
+          </div>
 
         </fieldset>
 
